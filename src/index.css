@@ -1,0 +1,107 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply font-sans antialiased bg-background text-foreground;
+    background-color: #121219;
+    background-image: 
+      radial-gradient(circle at 15% 50%, rgba(110, 43, 241, 0.1) 0%, transparent 25%),
+      radial-gradient(circle at 85% 30%, rgba(0, 209, 255, 0.08) 0%, transparent 25%);
+    background-attachment: fixed;
+  }
+
+  :root {
+    --background: 240 15% 8%;
+    --foreground: 0 0% 95%;
+    
+    --card: 240 15% 10%;
+    --card-foreground: 0 0% 95%;
+    
+    --popover: 240 15% 11%;
+    --popover-foreground: 0 0% 95%;
+    
+    --primary: 270 86% 55%;
+    --primary-foreground: 0 0% 100%;
+    
+    --secondary: 190 100% 50%;
+    --secondary-foreground: 240 10% 4%;
+    
+    --muted: 0 0% 35%;
+    --muted-foreground: 0 0% 70%;
+    
+    --accent: 0 100% 71%;
+    --accent-foreground: 0 0% 100%;
+    
+    --destructive: 350 89% 60%;
+    --destructive-foreground: 0 0% 100%;
+    
+    --border: 240 15% 25%;
+    --input: 240 15% 25%;
+    --ring: 240 15% 30%;
+    
+    --chart-1: 270 86% 55%;
+    --chart-2: 190 100% 50%;
+    --chart-3: 0 100% 71%;
+    --chart-4: 137 100% 45%;
+    --chart-5: 47 100% 55%;
+    
+    --radius: 0.5rem;
+  }
+}
+
+@layer components {
+  .glass-effect {
+    @apply bg-black/50 backdrop-blur-md border border-gray-800;
+  }
+
+  .tournament-card:hover .card-overlay {
+    @apply opacity-100;
+  }
+}
+
+@layer utilities {
+  .font-rajdhani {
+    font-family: 'Rajdhani', sans-serif;
+  }
+
+  .font-orbitron {
+    font-family: 'Orbitron', sans-serif;
+  }
+
+  .font-inter {
+    font-family: 'Inter', sans-serif;
+  }
+
+  .text-gradient {
+    @apply bg-clip-text text-transparent bg-gradient-to-r from-primary to-secondary;
+  }
+
+  .gradient-border {
+    position: relative;
+  }
+
+  .gradient-border::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(to right, theme('colors.primary'), theme('colors.secondary'));
+    mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+
+  .bg-dark {
+    background-color: #121219;
+  }
+}
